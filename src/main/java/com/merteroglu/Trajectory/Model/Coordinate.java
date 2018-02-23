@@ -4,6 +4,9 @@ public class Coordinate {
    private double longitude; // boylam
    private double latitude; // enlem
 
+    public Coordinate() {
+    }
+
     public Coordinate(double longitude, double latitude) {
         this.longitude = longitude;
         this.latitude = latitude;
@@ -45,5 +48,13 @@ public class Coordinate {
         temp = Double.doubleToLongBits(latitude);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Coordinate{" +
+                "longitude=" + longitude +
+                ", latitude=" + latitude +
+                '}';
     }
 }
