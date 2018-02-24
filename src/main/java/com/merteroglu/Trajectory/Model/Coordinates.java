@@ -1,15 +1,15 @@
 package com.merteroglu.Trajectory.Model;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Coordinates {
-    List<Coordinate> coordinates;
+    ArrayList<Coordinate> coordinates;
 
-    public List<Coordinate> getCoordinates() {
+    public ArrayList<Coordinate> getCoordinates() {
         return coordinates;
     }
 
-    public void setCoordinates(List<Coordinate> coordinates) {
+    public void setCoordinates(ArrayList<Coordinate> coordinates) {
         this.coordinates = coordinates;
     }
 }

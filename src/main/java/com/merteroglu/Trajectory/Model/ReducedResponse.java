@@ -7,12 +7,12 @@ public class ReducedResponse {
 
     List<Coordinate> reducedCoordinates;
     double reducedRate;
-    double responseTime;
+    long responseTime;
 
     public ReducedResponse() {
     }
 
-    public ReducedResponse(List<Coordinate> reducedCoordinates, double reducedRate, double responseTime) {
+    public ReducedResponse(List<Coordinate> reducedCoordinates, double reducedRate, long responseTime) {
         this.reducedCoordinates = reducedCoordinates;
         this.reducedRate = reducedRate;
         this.responseTime = responseTime;
@@ -34,11 +34,11 @@ public class ReducedResponse {
         this.reducedRate = reducedRate;
     }
 
-    public double getResponseTime() {
+    public long getResponseTime() {
         return responseTime;
     }
 
-    public void setResponseTime(double responseTime) {
+    public void setResponseTime(long responseTime) {
         this.responseTime = responseTime;
     }
 

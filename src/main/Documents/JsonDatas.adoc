@@ -1,0 +1,70 @@
+= Ornek Post Data
+
+[source,json]
+----
+
+{
+    "coordinates" : [{
+    	"longitude":"39.9276",
+    	"latitude":"116.4708"
+    },{
+    	"longitude":"39.9273",
+    	"latitude":"116.4709"
+    },{
+    	"longitude":"39.9282",
+    	"latitude":"116.4723"
+    },{
+    	"longitude":"39.9288",
+    	"latitude":"116.4724"
+    },{
+    	"longitude":"39.9297",
+    	"latitude":"116.4723"
+    },{
+    	"longitude":"39.9302",
+    	"latitude":"116.4725"
+    },{
+    	"longitude":"39.9307",
+    	"latitude":"116.4726"
+    },{
+    	"longitude":"39.9327",
+    	"latitude":"116.4728"
+    },{
+    	"longitude":"39.9326",
+    	"latitude":"116.4730"
+    },{
+    	"longitude":"39.9326",
+    	"latitude":"116.4729"
+    },{
+    	"longitude":"39.9327",
+    	"latitude":"116.4718"
+    },{
+    	"longitude":"39.9328",
+    	"latitude":"116.4672"
+    },{
+    	"longitude":"39.9366",
+    	"latitude":"116.4558"
+    },{
+    	"longitude":"39.9369",
+    	"latitude":"116.4558"
+    },{
+    	"longitude":"39.9374",
+    	"latitude":"116.4558"
+    },{
+    	"longitude":"39.9414",
+    	"latitude":"116.4560"
+    },{
+    	"longitude":"39.9415",
+    	"latitude":"116.4560"
+    },{
+    	"longitude":"39.9416",
+    	"latitude":"116.4561"
+    },{
+    	"longitude":"39.9539",
+    	"latitude":"116.4755"
+    },{
+    	"longitude":"39.9565",
+    	"latitude":"116.4813"
+    }]
+}
+
+----
