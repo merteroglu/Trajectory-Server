@@ -1,8 +1,8 @@
 package com.merteroglu.Trajectory.Model;
 
 public class Coordinate {
-   private double longitude; // boylam
-   private double latitude; // enlem
+   private double longitude; // boylam x
+   private double latitude; // enlem y
 
     public Coordinate() {
     }

@@ -2,15 +2,13 @@ package com.merteroglu.Trajectory.Util;
 
 import com.merteroglu.Trajectory.Model.Coordinate;
 
-import java.util.LinkedList;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.*;
 
 public class KdTree {
 
     private KdNode root;
     private int size;
-    private static final RectHV CONTAINER = new RectHV(0, 0, 1, 1);
+    private static final RectHV CONTAINER = new RectHV(-180, -90, 180, 90);
 
     public KdTree(){
         size = 0;
@@ -36,12 +34,12 @@ public class KdTree {
 
         if(node == null){
             size++;
-            return new KdNode(p.getLatitude(),p.getLongitude(),null,null,vertical);
+            return new KdNode(p.getLongitude(),p.getLatitude(),null,null,vertical);
         }
 
-        if(node.getX() == p.getLatitude() && node.getY() == p.getLongitude()) return node;
+        if(node.getX() == p.getLongitude() && node.getY() == p.getLatitude()) return node;
 
-        if(node.isVertical() && p.getLatitude() < node.getX() || !node.isVertical() && p.getLongitude() < node.getY()){
+        if(node.isVertical() && p.getLongitude() < node.getX() || !node.isVertical() && p.getLatitude() < node.getY()){
             node.setLeft(insert(node.getLeft(),p,!node.isVertical()));
         }else{
             node.setRight(insert(node.getRight(),p,!node.isVertical()));
@@ -78,22 +76,22 @@ public class KdTree {
         return size;
     }
 
-    private void range(final KdNode node,final RectHV nrect,final RectHV rect,final Queue<Coordinate> queue){
+    private void range(final KdNode node,final RectHV nrect,final RectHV rect,final ArrayList<Coordinate> list){
         if(node == null) return;
 
         if (rect.intersects(nrect)){
             final Coordinate p = new Coordinate(node.getX(),node.getY());
-            if(rect.contains(p)) queue.add(p);
-            range(node.getLeft(),leftRect(nrect,node),rect,queue);
-            range(node.getRight(),rightRect(nrect,node),rect,queue);
+            if(rect.contains(p)) list.add(p);
+            range(node.getLeft(),leftRect(nrect,node),rect,list);
+            range(node.getRight(),rightRect(nrect,node),rect,list);
         }
 
     }
 
-    public Iterable<Coordinate> range(final  RectHV rect){
-        final Queue<Coordinate> queue = new LinkedList<>();
-        range(root,CONTAINER,rect,queue);
-        return queue;
+    public ArrayList<Coordinate> range(final  RectHV rect){
+        final ArrayList<Coordinate> list = new ArrayList<>();
+        range(root,CONTAINER,rect,list);
+        return list;
     }
 
 

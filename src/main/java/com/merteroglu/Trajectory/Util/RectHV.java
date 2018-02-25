@@ -140,8 +140,8 @@ public final class RectHV {
     possibly at the boundary; {@code false} otherwise
      */
     public boolean contains(Coordinate p) {
-        return (p.getLatitude() >= xmin) && (p.getLatitude() <= xmax)
-                && (p.getLongitude() >= ymin) && (p.getLongitude() <= ymax);
+        return (p.getLongitude() >= xmin) && (p.getLongitude() <= xmax)
+                && (p.getLatitude() >= ymin) && (p.getLatitude() <= ymax);
     }
 
     /**
@@ -165,10 +165,10 @@ public final class RectHV {
      */
     public double distanceSquaredTo(Coordinate p) {
         double dx = 0.0, dy = 0.0;
-        if      (p.getLatitude() < xmin) dx = p.getLatitude() - xmin;
-        else if (p.getLatitude() > xmax) dx = p.getLatitude() - xmax;
-        if      (p.getLongitude() < ymin) dy = p.getLongitude() - ymin;
-        else if (p.getLongitude() > ymax) dy = p.getLongitude() - ymax;
+        if      (p.getLongitude() < xmin) dx = p.getLongitude() - xmin;
+        else if (p.getLongitude() > xmax) dx = p.getLongitude() - xmax;
+        if      (p.getLatitude() < ymin) dy = p.getLatitude() - ymin;
+        else if (p.getLatitude() > ymax) dy = p.getLatitude() - ymax;
         return dx*dx + dy*dy;
     }
 
