@@ -1,0 +1,264 @@
+= Trajectory-Server
+
+image:https://travis-ci.com/merteroglu/Trajectory-Server.svg?token=R7qDs2xSsrx4M5a8PsZZ&branch=master["Build Status", link="https://travis-ci.com/merteroglu/Trajectory-Server"]
+
+'''
+
+== Client Repo
+
+link:https://github.com/merteroglu/Trajectory-Client[Trajectory Client]
+
+== About
+
+This project has two services which are reduction and search. The reduction service reduces coordinates. It does that using Ramer Douglas Peucker algorithm. The second service is search service. It is built on Kd-Tree and it finds coordinates in rectangle selected by user.This project is developed with Java Spring Boot and uses rest controller.
+
+== Services
+
+=== Reduction Service
+
+- Sample post data json
+[source,json]
+----
+
+    "coordinates" : [{
+                            	"latitude":"39.9276",
+                            	"longitude":"116.4708"
+                            },{
+                            	"latitude":"39.9273",
+                            	"longitude":"116.4709"
+                            },{
+                            	"latitude":"39.9282",
+                            	"longitude":"116.4723"
+                            },{
+                            	"latitude":"39.9288",
+                            	"longitude":"116.4724"
+                            },{
+                            	"latitude":"39.9326",
+                            	"longitude":"116.4730"
+                            },{
+                            	"latitude":"39.9326",
+                            	"longitude":"116.4729"
+                            },{
+                            	"latitude":"39.9327",
+                            	"longitude":"116.4718"
+                            },{
+                            	"latitude":"39.9328",
+                            	"longitude":"116.4672"
+                            },{
+                            	"latitude":"39.9366",
+                            	"longitude":"116.4558"
+                            },{
+                            	"latitude":"39.9369",
+                            	"longitude":"116.4558"
+                            },{
+                            	"latitude":"39.9374",
+                            	"longitude":"116.4558"
+                            },{
+                            	"latitude":"39.9414",
+                            	"longitude":"116.4560"
+                            },{
+                            	"latitude":"39.9565",
+                            	"longitude":"116.4813"
+                            }]
+
+----
+
+- Sample return data json
+
+[source,json]
+----
+
+    "reducedCoordinates": [
+        {
+            "longitude": 116.4708,
+            "latitude": 39.9276
+        },
+        {
+            "longitude": 116.4723,
+            "latitude": 39.9282
+        },
+        {
+            "longitude": 116.4729,
+            "latitude": 39.9326
+        },
+        {
+            "longitude": 116.4672,
+            "latitude": 39.9328
+        },
+        {
+            "longitude": 116.4558,
+            "latitude": 39.9369
+        },
+        {
+            "longitude": 116.4561,
+            "latitude": 39.9416
+        },
+        {
+            "longitude": 116.4813,
+            "latitude": 39.9565
+        }
+    ],
+    "reducedRate": 65,
+    "responseTime": 3
+
+
+----
+
+=== Search Service
+
+- Sample Post Data Json
+
+[source,json]
+----
+
+    {
+        "allCoordinates" : [{
+        	"latitude":"39.9276",
+        	"longitude":"116.4708"
+        },{
+        	"latitude":"39.9273",
+        	"longitude":"116.4709"
+        },{
+        	"latitude":"39.9282",
+        	"longitude":"116.4723"
+        },{
+        	"latitude":"39.9288",
+        	"longitude":"116.4724"
+        },{
+        	"latitude":"39.9297",
+        	"longitude":"116.4723"
+        },{
+        	"latitude":"39.9302",
+        	"longitude":"116.4725"
+        },{
+        	"latitude":"39.9326",
+        	"longitude":"116.4730"
+        },{
+        	"latitude":"39.9326",
+        	"longitude":"116.4729"
+        },{
+        	"latitude":"39.9327",
+        	"longitude":"116.4718"
+        },{
+        	"latitude":"39.9328",
+        	"longitude":"116.4672"
+        },{
+        	"latitude":"39.9366",
+        	"longitude":"116.4558"
+        },{
+        	"latitude":"39.9369",
+        	"longitude":"116.4558"
+        },{
+        	"latitude":"39.9565",
+        	"longitude":"116.4813"
+        }]
+        ,
+        "topLeft" : {
+        	"latitude":"39.99",
+        	"longitude":"116.00"
+        }
+        ,
+         "bottomRight" : {
+        	"latitude":"39.00",
+        	"longitude":"116.99"
+        }
+    }
+
+----
+
+- Sample Return Search Data Json
+
+[source,json]
+----
+
+    "coordinates": [
+        {
+            "longitude": 116.4708,
+            "latitude": 39.9276
+        },
+        {
+            "longitude": 116.4672,
+            "latitude": 39.9328
+        },
+        {
+            "longitude": 116.4558,
+            "latitude": 39.9366
+        },
+        {
+            "longitude": 116.4558,
+            "latitude": 39.9369
+        },
+        {
+            "longitude": 116.4724,
+            "latitude": 39.9288
+        },
+        {
+            "longitude": 116.4723,
+            "latitude": 39.9297
+        },
+        {
+            "longitude": 116.4725,
+            "latitude": 39.9302
+        },
+        {
+            "longitude": 116.4726,
+            "latitude": 39.9307
+        },
+        {
+            "longitude": 116.4728,
+            "latitude": 39.9327
+        },
+        {
+            "longitude": 116.473,
+            "latitude": 39.9326
+        },
+        {
+            "longitude": 116.4729,
+            "latitude": 39.9326
+        },
+        {
+            "longitude": 116.4755,
+            "latitude": 39.9539
+        },
+        {
+            "longitude": 116.4813,
+            "latitude": 39.9565
+        }
+    ]
+
+----
+
+== Credits
+
+Author : Mert Eroglu
+
+[link=https://github.com/merteroglu]
+image::https://asciidoctor.org/images/octocat.jpg[Github Profile]
+
+[link=https://twitter.com/16PaxweL]
+image::http://www.merayarnett.com/wp-content/uploads/2017/12/Cool-Twitter-Logo-Vector-Free-28-With-Additional-Design-Logo-with-Twitter-Logo-Vector-Free.jpg[Twitter Profile,50,50]
+
+[link=https://www.linkedin.com/in/mert-eroglu/]
+image::https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png[Twitter Profile,50,50]
+
+
+
+== License
+
+----
+
+Copyright 2017 merteroglu, Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+----
