@@ -10,7 +10,7 @@ link:https://github.com/merteroglu/Trajectory-Client[Trajectory Client]
 
 == About
 
-This project has two services which are reduction and search. The reduction service reduces coordinates. It does that using Ramer Douglas Peucker algorithm. The second service is search service. It is built on Kd-Tree and it finds coordinates in rectangle selected by user.This project is developed with Java Spring Boot and uses rest controller.
+This project has two services which are reduction and search. The reduction service reduces coordinates. It does that using Ramer Douglas Peucker algorithm. The second service is search service. It is built on Kd-Tree and it finds coordinates in rectangle selected by user.This project developed with Java Spring Boot and uses rest controller.
 
 == Services
 
